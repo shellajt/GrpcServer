@@ -95,8 +95,9 @@ public class AdderServer {
         public void addNumbers(AddRequest req, StreamObserver<AddReply> responseObserver) {
             int num1 = Integer.parseInt(req.getNum1());
             int num2 = Integer.parseInt(req.getNum2());
+            int sum = num1 + num2;
 
-            AddReply reply = AddReply.newBuilder().setSum(num1 + "+" + num2 + "=" + num1+num2).build();
+            AddReply reply = AddReply.newBuilder().setSum(num1 + "+" + num2 + "=" + sum).build();
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }
